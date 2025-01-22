@@ -1,0 +1,58 @@
+import SPEECHRECOGNITION2 #TEXT TO SPEECH
+import SPEECHRECOGNITION   #SPEECH TO TEXT
+import datetime
+import webbrowser #opens any browser we want
+import weather
+
+def ACTION (data):
+    user_data = data.lower()
+    if "what is your name" in user_data:
+        SPEECHRECOGNITION2.SPEECHRECOGNITION2("MY NAME IS VIRTUAL ASSISTANT")
+        return "MY NAME IS VIRTUAL ASSISTANT"
+    elif "hello" in user_data or "hii" in user_data:
+        SPEECHRECOGNITION2.SPEECHRECOGNITION2("hey,how i can i help you")
+        return "hey,how i can i help you"
+    elif "good morning" in user_data:
+        SPEECHRECOGNITION2.SPEECHRECOGNITION2("good morning")
+        return "good morning"
+    elif "how was your day" in user_data:
+        SPEECHRECOGNITION2.SPEECHRECOGNITION2("as everyday it's boring")
+        return "as everyday it's boring"
+    elif "time now" in user_data:
+        current_time = datetime.datetime.now()
+        Time= (str)(current_time)+"hour:", (str)(current_time.minute)+"minute"
+        SPEECHRECOGNITION2.SPEECHRECOGNITION2(Time)
+        return Time
+    elif "shut down" in user_data:
+        SPEECHRECOGNITION2.SPEECHRECOGNITION2("OK")
+        return "ok"
+    elif "playmusic" in user_data:
+        webbrowser.open("https://open.spotify.com/") #opens spotify link
+        SPEECHRECOGNITION2.SPEECHRECOGNITION2("spotify is ready now")
+        return "spotify is ready now"
+    elif "youtube" in user_data:
+        webbrowser.open("https://www.youtube.com/") #opens youtube
+        SPEECHRECOGNITION2.SPEECHRECOGNITION2("youtube is opened")
+        return "youtube is opened"
+    elif "google" in user_data:
+        webbrowser.open("https://www.google.co.in/") #opens google
+        SPEECHRECOGNITION2.SPEECHRECOGNITION2("google is opened")
+        return "google is opened"
+    elif "whatsapp" in user_data:
+        webbrowser.open("https://web.whatsapp.com/") #opens whatsapp
+        SPEECHRECOGNITION2.SPEECHRECOGNITION2("whatsapp is opened")
+        return "whatsapp is opened"
+    elif "weather" in user_data:
+        result = weather.weather()
+        SPEECHRECOGNITION2.SPEECHRECOGNITION2(result)
+        return result
+    else:
+        SPEECHRECOGNITION2.SPEECHRECOGNITION2("i am not able to understand")
+        return "i am not able to understand"
+
+
+
+
+
+
+
