@@ -1,0 +1,21 @@
+#SPEECH TO TEXT
+import speech_recognition as sr
+
+def SPEECHRECOGNITION():
+    r = sr.Recognizer()
+    with sr.Microphone() as source:
+     audio = r.listen(source)
+    #if mic is on and user doesn't speak anything then we get error so we perform exceptional handling
+    try:
+       voice_data=""
+       voice_data = r.recognize_google(audio)
+       print(voice_data)
+       return voice_data
+    except sr.UnknownValueError: #when an irrelevant audio is provided then the error arises i.e;not releated to speech or voice.
+        print("error")
+    except sr.RequestError: #if an error occurs this method returns a HTTPError object.request:Returns The Request Object That Requested This Response.
+        print("RequestError")
+
+
+SPEECHRECOGNITION()
+    
