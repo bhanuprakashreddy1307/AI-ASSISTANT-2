@@ -1,0 +1,14 @@
+#TEXT TO SPEECH
+#TO IMPLEMENT THIS WE REQUIRE PYTTSX3 2.90 LIBRARY
+import pyttsx3
+
+def SPEECHRECOGNITION2(text):
+    text="hello world!"
+    engine = pyttsx3.init()
+    rate = engine.getProperty('rate')
+    engine.setProperty('rate', 'rate-70')
+    engine.say(text)
+    engine.runAndWait()
+
+
+SPEECHRECOGNITION2("hello world!")    
